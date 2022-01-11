@@ -1,8 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
 import * as css from './App.module.sass';
+import {BrowserRouter,  Routes, Route} from "react-router-dom";
+import Sandbox from "./modules/Sandbox/Sandbox";
 
 function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path={'/sandbox'} element={<Sandbox />} />
+        <Route path={'*'} element={<Test />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+function Test() {
   return (
     <div className={css.App}>
       <header className={css.AppHeader}>
@@ -20,7 +33,7 @@ function App() {
         </a>
       </header>
     </div>
-  );
+  )
 }
 
 export default App;

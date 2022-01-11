@@ -2,8 +2,10 @@
   text-align: center;
 }
 
+$test: 20vmin;
+
 .App-logo {
-  height: 40vmin;
+  height: $test;
   pointer-events: none;
 }
 

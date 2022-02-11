@@ -1,14 +1,23 @@
 import {ReactNode} from "react";
 
 interface SchemaElementContentData {
-  caption: ReactNode;
+  caption?: ReactNode;
+  description?: ReactNode;
 }
+
+export type ContentType = string | SchemaElementContentData;
 
 export default class SchemaElementContent implements ISchemaElementContent {
   public caption: SchemaElementContentData['caption'];
+  public description: SchemaElementContentData['description'];
 
-  constructor({ caption }: SchemaElementContentData) {
-    this.caption = caption;
+  constructor(content: ContentType) {
+    if (typeof content === 'string') {
+      this.caption = content;
+    } else {
+      this.caption = content.caption;
+      this.description = content.description;
+    }
   }
 
   setCaption(caption: ReactNode): ISchemaElementContent {

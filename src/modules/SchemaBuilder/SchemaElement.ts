@@ -1,4 +1,4 @@
-import SchemaElementContent from "./SchemaElementContent";
+import SchemaElementContent, {ContentType} from "./SchemaElementContent";
 import {ReactNode} from "react";
 
 
@@ -14,17 +14,27 @@ export default class SchemaElement implements ISchemaElement {
   public placement: ISchemaElement['placement'];
   public position: ISchemaElement['position'];
   public content: ISchemaElement['content']
+  // public parent: ISchemaElement | null = null;
 
-  constructor(caption?: ReactNode) {
+  constructor(content: ContentType) {
     this.children = [];
     this.placement = 'right';
-
-    this.content = new SchemaElementContent({caption: ''});
-    if (caption) this.setCaption(caption);
+    this.content = new SchemaElementContent(content);
   }
 
-  addChild(child: ISchemaElement): ISchemaElement {
-    this.children.push(child);
+  addChildren(children: (ISchemaElement | ContentType)[]): ISchemaElement {
+    children.forEach(x => this.addChild(x));
+    return this;
+  }
+
+  addChild(child: ISchemaElement | ContentType): ISchemaElement {
+    if (typeof child === 'object' && 'children' in child) {
+      this.children.push(child);
+    } else {
+      const childNode = new SchemaElement(child);
+      this.children.push(childNode);
+    }
+
     return this;
   }
 

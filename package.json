@@ -87,6 +87,7 @@
   },
   "devDependencies": {
     "@types/jest": "^27.4.0",
+    "classnames": "^2.3.1",
     "node-sass": "^7.0.1"
   },
   "jest": {

@@ -4,9 +4,11 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext",
+      "esnext"
     ],
     "types": ["@types/jest"],
+    "baseUrl": "./src",
+    "rootDirs": ["./src"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,

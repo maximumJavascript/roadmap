@@ -1,16 +1,35 @@
-.cardRelativeWrap
+.cardRoot
   position: relative
   display: flex
   justify-content: flex-start
   align-items: flex-start
+  flex-flow: row wrap
+
+.cardColumn
+  display: flex
+  flex-flow: column nowrap
+  align-items: flex-start
+  justify-content: flex-start
+  width: 40vw
+  max-width: 500px
+  margin-bottom: 20px
+  margin-top: 2svh
+  margin-left: 2svw
+
+  @media (max-width: 700px)
+    width: 100%
+    max-width: 100%
+
+  > .cardColumn
+    max-width: 90%
+    margin: 1svh 1svw 0 1svw
+
 
 .card_right
   position: relative
 
 .card_bottom
-  position: absolute
-  top: 100%
-  left: 0
+  position: relative
 
 .card__description
   display: block

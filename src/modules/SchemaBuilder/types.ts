@@ -10,17 +10,12 @@ declare global {
     readonly appearance?: ISchemaElementAppearance;
     readonly children: Readonly<ISchemaElement[]>;
     readonly position?: ISchemaElementPosition;
-    readonly placement?: SchemaElementPlacement;
+    readonly placement: SchemaElementPlacement;
     readonly content: ISchemaElementContent;
 
     addChild(child: ISchemaElement | ContentType): ISchemaElement;
-    addChildren(children: (ISchemaElement | ContentType)[]): ISchemaElement;
 
-    setAppearance(newAppearance: ISchemaElementAppearance): ISchemaElement;
     setPlacement(newPlacement: SchemaElementPlacement): ISchemaElement;
-    setPosition(newPosition: ISchemaElementPosition): ISchemaElement;
-    setContent(newContent: ISchemaElementContent): ISchemaElement;
-    setCaption(caption: ReactNode): ISchemaElement;
     getLastChild(): ISchemaElement;
     flat(): Readonly<ISchemaElement[]>;
 

@@ -1,3 +1,3 @@
-export { default as part1 } from './part1';
-export { default as part2 } from './part2';
-export { default as part3 } from './part3';
+export { chapters1to7 } from './part1';
+export { chapters8to11 } from './part2';
+export { chapters12to14 } from './part3';
